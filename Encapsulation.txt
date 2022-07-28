@@ -1,0 +1,144 @@
+Encapsulaton:
+-------------
+
+It is defined as wrapping up the data under a single unit.
+
+package com.demo.object;
+
+public class Employee {
+
+	private String id;
+	private String name;
+
+	// Retrieve the Data
+	public String getId() {
+		return id;
+	}
+
+	// Set the data
+	public void setId(String id) {
+		// validatiion
+		if (id.length() > 2) {
+			this.id = id;
+		} else {
+			this.id = "Invalid Length";
+		}
+	}
+
+	// get the name
+	public String getName(o) {
+		return name;
+	}
+
+	// Set the Name
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + "]";
+	}
+
+}
+
+
+2.It is the mechanism that binds togther the code and the data it manipulates.
+
+In  Encapsulation the variables or data in class is hidden from other class and can be accessed only through methods.
+
+package com.demo.object;
+
+public class Sample extends Object {
+
+
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		
+		//Setting the Data
+		emp.setId("1");
+		emp.setName("ramu");
+
+		//Get the data
+		System.out.println(emp.getId());
+		System.out.println(emp.getName());
+
+	
+	}
+
+	
+}
+
+
+1.private fields/variables
+2.public methods to set /get  the data. (Setter & Getter methods)
+
+
+package com.demo.object;
+
+public class Employee {
+	private String id;
+	private String name;
+
+	// Retrieve the Data
+	public String getId() {
+		return id;
+	}
+
+	// Set the data
+	public void setId(String id) {
+		// validatiion
+		if (id.length() > 2) {
+			this.id = id;
+		} else {
+			this.id = "Invalid Length";
+		}
+	}
+
+	// get the name
+	public String getName(String id) {
+		if(id.equals("1"))
+		return name;
+		else
+			return "Invalid";
+	}
+
+	// Set the Name
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + "]";
+	}
+
+}
+
+
+package com.demo.object;
+
+public class Sample extends Object {
+
+
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		
+		//Setting the Data
+		emp.setId("1");
+		emp.setName("ramu");
+
+		//Get the dataa
+		System.out.println(emp.getId());
+		System.out.println(emp.getName("2"));
+
+	
+	}
+
+	
+}
+
