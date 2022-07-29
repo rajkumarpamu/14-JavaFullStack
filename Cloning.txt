@@ -1,0 +1,159 @@
+Cloning in Java:
+----------------
+
+protected Object	clone()
+Creates and returns a copy of this object.
+
+Cloning : Creating duplicate Object /exact of the object
+
+Creating an Object:
+--------------------
+
+  Demo d = new Demo();
+
+Another o way of creating Object :
+---------------------------------
+
+clone();
+
+
+Scebario-1:
+
+Assigning a new Reference:
+-----------------------------
+
+public class Employee {
+	
+	 int x=10;
+	 int y=20;
+
+	
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.x);
+		System.out.println(emp.y);
+		//Returns a hash code value for the object
+		System.out.println(emp.hashCode());
+		
+		//Assigned emp Object to emp1 refeence
+		Employee emp1 = emp;
+		//Returns a hash code value for the object
+		System.out.println(emp1.hashCode());
+		System.out.println(emp1.x);
+		System.out.println(emp1.y);
+	}
+	
+
+}
+
+
+Result:
+
+10
+20
+366712642
+366712642
+10
+20
+
+As the hashcodes are there is only one object is availiable.
+
+public interface Cloneable
+
+A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for 
+that method to make a field-for-field copy of instances of that class.
+
+package com.demo.object;
+
+public class Employee implements Cloneable{
+	
+	 int x=10;
+	 int y=20;
+
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.x);
+		System.out.println(emp.y);
+		//Returns a hash code value for the object
+		System.out.println(emp.hashCode());
+		
+	
+		
+		/*
+		 * Object o = emp.clone(); 
+		 * Employee emp1 = (Employee)o;
+		 */
+		
+		//Clooned Object
+		Employee emp1 = (Employee)emp.clone();
+		//Returns a hash code value for the object
+		System.out.println(emp1.hashCode());
+		System.out.println(emp1.x);
+		System.out.println(emp1.y);
+
+		emp1.x=11;
+		System.out.println(emp.x);
+		System.out.println(emp1.x);
+		
+	}
+	
+
+}
+
+
+
+package com.demo.object;
+
+public class Employee implements Cloneable{
+	
+	 int x=10;
+	 int y=20;
+
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.x);
+		System.out.println(emp.y);
+		emp.x=11;
+		emp.y=21;
+		
+		Employee emp1 = new Employee();
+		System.out.println(emp1.x);
+		System.out.println(emp1.y);
+		
+	}
+	
+
+}
+
+
+package com.demo.object;
+
+public class Employee implements Cloneable{
+	
+	 int x=10;
+	 int y=20;
+
+	
+	public static void main(String[] args) throws CloneNotSupportedException {
+		
+		Employee emp = new Employee();
+		System.out.println(emp.x);
+		System.out.println(emp.y);
+		emp.x=11;
+		emp.y=21;
+		
+		Employee emp1 = (Employee)emp.clone();
+		System.out.println(emp1.x);
+		System.out.println(emp1.y);
+		
+	}
+	
+
+}
+
+ Cloneable Interface is called Marker Interface.
